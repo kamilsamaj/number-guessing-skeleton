@@ -6,7 +6,17 @@
   <title>Number guessing game</title>
 </head>
 <body>
-<h1>It works!</h1>
+<main class="container">
+  <h1>Number guessing game</h1>
+  <form>
+    <div>
+      <label for="number">Number from 0 to 10:</label>
+      <input id="number" placeholder="Put your guess here" type="number">
+      <input id="guess-button" type="submit" value="Check my guess">
+      <p class="message" style="color: red"></p>
+    </div>
+  </form>
+</main>
 <script src="app.js"></script>
 </body>
 </html>
