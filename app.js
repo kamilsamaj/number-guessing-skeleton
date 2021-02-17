@@ -6,12 +6,19 @@ const inputEl = document.getElementById('number');
 
 guessButton.addEventListener('click', e => {
   let guessedNumber = parseInt(inputEl.value);
-  if (guessedNumber === rndNumber) {
-    msgEl.textContent = 'Yes, you won!';
+  if (isNaN(guessedNumber) || guessedNumber < 1 || guessedNumber > 10) {
+    sendMessage('Your guessed number is not in the range from 1 to 10', 'red');
+  } else if (guessedNumber === rndNumber) {
+    sendMessage('Yes, you won!', 'green');
   } else if (guessedNumber < rndNumber) {
-    msgEl.textContent = 'You are below';
+    sendMessage('You are below', 'red');
   } else {
-    msgEl.textContent = 'You are over';
+    sendMessage('You are over', 'red');
   }
   e.preventDefault();
 });
+
+function sendMessage(msg, color) {
+  msgEl.style.color = color;
+  msgEl.textContent = msg;
+}
